@@ -101,7 +101,7 @@ def q10
   # puts foods[2] == "うに" ? "好物です" : "まあまあ好きです"
 
   foods.each.with_index(1) do |sushi, i|
-    if sushi == "うに"
+    if sushi.include?("うに")
       puts "#{i}皿目の#{sushi}は好物です"
     else
       puts "#{i}皿目の#{sushi}はまあまあ好きです"
