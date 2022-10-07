@@ -173,6 +173,7 @@ def q15
   # end
 
   p data1.has_key?(:age) ? "OK" : "NG"
+  p data2.has_key?(:age) ? "OK" : "NG"
 
 end
 
