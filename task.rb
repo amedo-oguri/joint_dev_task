@@ -98,15 +98,16 @@ def q10
   #   puts "まあまあ好きです"
   # end
 
-  puts foods[2] == "うに" ? "好物です" : "まあまあ好きです"
+  # puts foods[2] == "うに" ? "好物です" : "まあまあ好きです"
 
-  # foods.each.with_index(1) do |sushi, i|
-  #   if sushi == "うに"
-  #     puts "#{i}皿目の#{sushi}は好物です"
-  #   else
-  #     puts "#{i}皿目の#{sushi}はまあまあ好きです"
-  #   end
-  # end
+  foods.each.with_index(1) do |sushi, i|
+    if sushi == "うに"
+      puts "#{i}皿目の#{sushi}は好物です"
+    else
+      puts "#{i}皿目の#{sushi}はまあまあ好きです"
+    end
+  end
+
 end
 
 def q11
@@ -159,17 +160,20 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
-  if data1.has_key?(:age)
-    puts "OK"
-  else
-    puts "NG"
-  end
+  # if data1.has_key?(:age)
+  #   puts "OK"
+  # else
+  #   puts "NG"
+  # end
 
   # if data2.has_key?(:age)
   #   puts "OK"
   # else
   #   puts "NG"
   # end
+
+  p data1.has_key?(:age) ? "OK" : "NG"
+
 end
 
 def q16
