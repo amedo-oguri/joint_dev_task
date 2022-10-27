@@ -197,15 +197,15 @@ class UserQ17
 
   def initialize(name:, age:, gender:)
     @name = name
-    @age = age
+    user.age = age
     @gender = gender
   end
 
   def info
     puts <<~TEXT
-    puts "名前：#{@name}"
-    puts "年齢：#{@age}"
-    puts "性別：#{@gender}"
+     "名前：#{@name}"
+     "年齢：#{user.age}"
+     "性別：#{@gender}"
     TEXT
   end
 
@@ -213,8 +213,7 @@ end
 
 def q17
   # ここは変更しないで下さい（ユーザー情報は変更していただいてOKです）
-  user1 = UserQ17.new(name: "神里", age: 32, gender: "
-    男")
+  user1 = UserQ17.new(name: "神里", age: 32, gender: "男")
   user2 = UserQ17.new(name: "あじー", age: 32, gender: "男")
 
   user1.info
@@ -227,16 +226,24 @@ class UserQ18
 
   def initialize(name:, age:)
     @name = name
-    @age = age
+    user.age = age
   end
 
+  # def introduce
+  #   if user.age > 10 
+  #     puts "こんにちは#{@name}と申します。宜しくお願いいたします。"
+  #   else
+  #     puts "はいさいまいど〜、#{@name}です!!!"
+  #   end
+  # end
+
   def introduce
-    if @age > 10
-      puts "こんにちは#{@name}と申します。宜しくお願いいたします。"
-    else
-      puts "はいさいまいど〜、#{@name}です!!!"
+    if user.age > 10 ? 
+      (puts "こんにちは#{@name}と申します。宜しくお願いいたします。") :
+      (puts "はいさいまいど〜、#{@name}です!!!")
     end
   end
+
 end
 
 def q18
@@ -250,7 +257,8 @@ end
 
 class Item
   # 以下を修正して下さい
-  def initialize(name:, age:)
+attr_accessor :name
+  def initialize(name:)
     @name = name
   end
 end
@@ -264,13 +272,36 @@ end
 class UserQ20
   # 以下に回答を記載
 
+  attr_accessor :name, :age
+
+  def initialize(name:, age:)
+    @name = name
+    @age = age
+  end
+
 end
 
 class Zoo
   # 以下に回答を記載
 
-end
+  def initialize(name:, entry_fee:)
+    @name = name
+    @entry_fee = entry_fee
+  end
 
+  def info_entry_fee(user)
+   if user.age < 120 && user.age > 65 
+    puts "#{user.name}さんの入場料は #{@entry_fee[:senior]} 円です"
+   elsif user.age < 64 && user.age > 13
+    puts "#{user.name}さんの入場料は #{@entry_fee[:adult]} 円です"
+   elsif user.age < 12 && user.age > 6
+    puts "#{user.name}さんの入場料は #{@entry_fee[:children]} 円です"
+   elsif user.age < 5 && user.age > 0
+    puts "#{user.name}さんの入場料は #{@entry_fee[:infant]} 円です"
+   end
+  end
+
+end
 
 def q20
   # ここは変更しないで下さい（動物園・ユーザー情報は変更していただいてOKです）
